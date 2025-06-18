@@ -56,6 +56,21 @@
             max-width: 100%;
             height: auto;
         }
+
+        .like-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .like-button:hover {
+            background-color: #0056b3;
+        }
+        .like-count {
+            margin-left: 10px;
+        }
     </style>
 </head>
 	
@@ -294,7 +309,30 @@ Lalu kita berpikir untuk mau bertambah rezeki, maka Tuhan bilang, kamu harus <st
 <p> <strong> Mungkin ini dulu aja tulisan kali ini, next nya gue mungkin coba bikin tulisan lagi soal apapun itu yang pengen gua tulis, heuheuheu 😀</strong></p>
 <br>
 
+<div class="container">
+       
+   
+        <div class="like-section">
+            <button class="like-button" onclick="addLike()">Like</button>
+            <span class="like-count" id="like-count">0</span> likes
+        </div>
+    </div>
+	
 </body>
+</head>
+</html>
+
+ <script>
+        // Inisialisasi like count dari localStorage
+        let likeCount = localStorage.getItem('likeCount') ? parseInt(localStorage.getItem('likeCount')) : 0;
+        document.getElementById('like-count').innerText = likeCount;
+
+        function addLike() {
+            likeCount++;
+            document.getElementById('like-count').innerText = likeCount;
+            localStorage.setItem('likeCount', likeCount); // Simpan like count ke localStorage
+        }
+    </script>
 
 <!-- stickynama300x600 -->
 
